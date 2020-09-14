@@ -15,13 +15,13 @@ def loadRSS():
     # creating HTTP response object from given url
     resp = requests.get(url)
 
-    # saving the XML file
-    with open('recurfeed.xml', 'wb') as f:
+    # creating and saving the XML file
+    with open('feed.xml', 'wb') as f:
         f.write(resp.content)
 
 def parseRSS():
         # create element tree object
-        feed = ET.parse('recurfeed.xml')
+        feed = ET.parse('feed.xml')
 
         # get root element
         root = feed.getroot()
