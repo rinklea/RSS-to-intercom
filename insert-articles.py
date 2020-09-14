@@ -43,11 +43,11 @@ def parseRSS():
                     if(child.tag == 'link'):
                         articles[child.tag] = child.text
 
-                    dict['author_id'] = <Your Author id>
-                    dict['state'] = "draft"
+                    articles['author_id'] = <Your Author id>
+                    articles['state'] = "draft"
 
                 #Converting dictionary into JSON object
-                articles_in_json=json.dumps(dict)
+                articles_in_json=json.dumps(articles)
 
                 #Sending JSON object to the server
                 res = requests.post(url, data=articles_in_json, headers=headers)
