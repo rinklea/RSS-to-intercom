@@ -1,7 +1,8 @@
 import requests
 import json
 
-for j in range(5):
+// intercom supports deletion of upto 30 articles a time so a loop will help to not the run the code multiple times
+for articles in range(5):
     url_to_fetch='https://api.intercom.io/articles'
     headers = {
         'Authorization': 'Bearer <Your Intercom Token>',
@@ -10,12 +11,11 @@ for j in range(5):
     }
 
     response = requests.get(url_to_fetch, headers=headers)
-    dict=json.loads(response.text)
+    articles_in_a_dictionary=json.loads(response.text)
 
-    for i in dict["data"]:
+    for i in articles_in_a_dictionary["data"]:
             id=i["id"]
-            string="https://api.intercom.io/articles/" + str(id)
-            url_to_delete=string
+            url_to_delete="https://api.intercom.io/articles/" + str(id)
             delete_response = requests.delete(url_to_delete, headers=headers)
     print(delete_response)
 
