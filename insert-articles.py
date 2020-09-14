@@ -30,28 +30,29 @@ def parseRSS():
         for childitem in root.findall('./channel/item'):
 
                 #creating an empty dictionary
-                dict={}
+                articles={}
 
                 # iterate child elements of childitem
                 for child in childitem:
 
                     #storing necessary tags in dictionary
                     if(child.tag == 'title'):
-                        dict[child.tag]=child.text
+                        articles[child.tag]=child.text
                     if (child.tag == '{http://purl.org/rss/1.0/modules/content/}encoded'):
-                        dict['body'] = child.text
+                        articles['body'] = child.text
                     if(child.tag == 'link'):
-                        dict[child.tag] = child.text
+                        articles[child.tag] = child.text
 
-                    dict['author_id'] = 4334234
+                    dict['author_id'] = <Your Author id>
                     dict['state'] = "draft"
 
                 #Converting dictionary into JSON object
-                json_dict=json.dumps(dict)
+                articles_in_json=json.dumps(dict)
 
                 #Sending JSON object to the server
-                res = requests.post(url, data=json_dict, headers=headers)
-
+                res = requests.post(url, data=articles_in_json, headers=headers)
+        
+        //Should print <200>
         print(res.status_code)
 
 # load RSS from web to update existing xml file
