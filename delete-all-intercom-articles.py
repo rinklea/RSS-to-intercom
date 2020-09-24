@@ -21,13 +21,14 @@ for articles in range(5):
    
     for each_article in articles_in_a_dictionary["data"]:
         
-            // intercom delete article as per their id
+            // intercom deletes article based on their id
             id=each_article["id"]
             url_to_delete="https://api.intercom.io/articles/" + str(id)
             
             //deleting article from the url
             delete_response = requests.delete(url_to_delete, headers=headers)
-            
+    
+    // Should print 200
     print(delete_response)
 
 
