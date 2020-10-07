@@ -3,9 +3,9 @@ Send articles from your RSS feed over to your intercom account. Your articles wi
 
 You can import the libraries as:
 
-pip install xml.etree.ElementTree as ET
-pip install json
-pip install requests
+pip install xml.etree.ElementTree as ET.
+pip install json.
+pip install requests.
   
 You can find your Access Token in the Configure > Authentication section in your app within the Developer Hub. You will also see it in your Test & Publish > Your Workspaces page of your app in the Developer Hub. This lists out all of your workspaces that have the app installed.
 
