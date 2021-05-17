@@ -2,7 +2,7 @@ import xml.etree.ElementTree as ET
 import json
 import requests
 
-url = "https://api.intercom.io/articles"
+intercom_url = "https://api.intercom.io/articles"
 headers = {
     'Authorization': 'Bearer <Your Intercom Token>',
     'Content-Type': 'application/json',
@@ -10,10 +10,10 @@ headers = {
 }
 def loadRSS():
     # url of RSS feed
-    url = '<Your RSS FEED>'
+    rss_url = '<Your RSS FEED>'
 
     # creating HTTP response object from given url
-    resp = requests.get(url)
+    resp = requests.get(rss_url)
 
     # creating and saving the XML file
     with open('feed.xml', 'wb') as f:
@@ -50,7 +50,7 @@ def parseRSS():
                 articles_in_json=json.dumps(articles)
 
                 #Sending JSON object to the server
-                res = requests.post(url, data=articles_in_json, headers=headers)
+                res = requests.post(intercom_url, data=articles_in_json, headers=headers)
         
         #Should print <200>
         print(res.status_code)
