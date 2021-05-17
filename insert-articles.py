@@ -52,7 +52,7 @@ def parseRSS():
                 #Sending JSON object to the server
                 res = requests.post(url, data=articles_in_json, headers=headers)
         
-        //Should print <200>
+        #Should print <200>
         print(res.status_code)
 
 # load RSS from web to update existing xml file
